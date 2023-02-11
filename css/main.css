@@ -1,0 +1,210 @@
+/* font installation */
+@font-face {
+    font-family: applefont;
+    src: url("../assets/fonts/applefont.woff"),
+         url("../assets/fonts/applefont.woff2")
+    ;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 16px;
+    font-family: applefont;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(45deg, var(--primary-2), var(--primary-4));
+    -webkit-user-select: none;
+    user-select: none;
+}
+/* scroll slider style  */
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 8px;
+    height: 25px;
+}
+
+html::-webkit-scrollbar-track {
+    border: 3px solid #ffffff;
+}
+/* the main colors */
+:root {
+    --primary-1: #b0d6f5;
+    --primary-2: #65c2f5;
+    --primary-3: #09b1ec;
+    --primary-4: #0487e2;
+    --primary-5: #0463ca;
+   --text-color: #ffffff;
+}
+/* the swup style for transition */
+.transition-fade{
+    opacity: 1;
+    transition: 700ms;
+}
+html.is-animating .transition-fade{
+    opacity: 0;
+}
+
+
+.transition-wipe {
+    transition: 0.7s;
+    transform: scaleY(0);
+}
+
+html.is-animating .transition-wipe {
+    transform: scaleY(1);
+    border-top-right-radius: 8px;
+    border-top-left-radius:  8px;
+}
+.overlayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    left: 0;
+    top: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+}
+/* the main view style*/
+.main{
+    position: relative;
+    width: 100%;
+    height: 85vh;
+}
+/* paragraph style  */
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paragraph-container{
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: 1rem;
+}
+.title {
+position: relative;
+font-size: 2.25rem;
+margin-block: 1rem;
+color: var(--text-color);
+}
+.paragraph {
+    position: relative;
+    font-size: 1.25rem;
+    word-spacing: 2px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.social-links {
+    display: inline-flex;
+}
+
+.social-links .social-link {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 600ms ease;
+}
+
+.social-links .social-link:hover {
+    background-color: #0463ca;
+}
+
+.social-links .social-link:nth-child(3):hover {
+    background-image: linear-gradient(130deg, #515bd4, #8134Af, #dd2a7b, #feda77, #f58529);
+}
+/* footer style  */
+footer {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-5);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    top: -15px;
+}
+footer .navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    background-color: #fff;
+    color: var(--primary-5);
+    width: 145px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+}
+.icon-style{
+    position: relative;
+    padding: 0 5px;
+}
+.navigation:hover .icon-style{
+    animation: move 700ms ease infinite;
+}
+@keyframes move {
+    from{
+        transform: translateX(0px);
+    } to {
+        transform: translateX(5px);
+    }
+}
+
+
+/* screen support */
+@media screen and (max-width: 450px) {
+    .title {
+            position: relative;
+            font-size: 2.25rem;
+            margin-block: 1rem;
+    }
+    .paragraph {
+            position: relative;
+            font-size: 19px;
+            word-spacing: 1.5px;
+            line-height: 1.2;
+    }
+}
+
+/* dark theme  */
+@media (prefers-color-scheme: dark) {
+    :root {
+            --primary-1: red;
+            --primary-2: yellow;
+            --primary-3: green;
+            --primary-4: orange;
+            --primary-5: blue;
+           --text-color: #dddddd;
+        }
+}
